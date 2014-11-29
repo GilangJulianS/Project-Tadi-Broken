@@ -6,6 +6,7 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -48,7 +49,7 @@ public class OpeningFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				((MainActivity)getActivity()).getSupportFragmentManager().beginTransaction()
-					.replace(R.id.container, new DonateListFragment()).commit();
+					.replace(R.id.container, new DonateListFragment()).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commit();
 			}
 		});
 		return rootView;
@@ -58,7 +59,6 @@ public class OpeningFragment extends Fragment {
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		main = (MainActivity) activity;
-		main.getSupportActionBar().hide();
 	}
 	
 	@Override

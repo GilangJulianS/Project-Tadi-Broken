@@ -3,6 +3,7 @@ package com.tadi.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,7 +59,7 @@ public class FirstLoginFragment extends Fragment {
 	public void login(){
 		MainActivity.loggedIn = true;
 		((MainActivity)getActivity()).getSupportFragmentManager().beginTransaction()
-				.replace(R.id.container, new DonateListFragment()).commit();
+				.replace(R.id.container, new DonateListFragment()).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commit();
 	}
 	
 	@Override
@@ -66,12 +67,6 @@ public class FirstLoginFragment extends Fragment {
 		super.onAttach(activity);
 		main = (MainActivity) activity;
 		main.getSupportActionBar().hide();
-	}
-	
-	@Override
-	public void onDetach(){
-		super.onDetach();
-		main.getSupportActionBar().show();
 	}
 
 }
