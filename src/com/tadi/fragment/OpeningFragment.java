@@ -49,7 +49,7 @@ public class OpeningFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				((MainActivity)getActivity()).getSupportFragmentManager().beginTransaction()
-					.replace(R.id.container, new DonateListFragment()).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commit();
+					.replace(R.id.container, new DonateListFragment(true)).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commit();
 			}
 		});
 		return rootView;

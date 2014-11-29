@@ -26,7 +26,7 @@ public class FinishDonateFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				FragmentManager fm = getActivity().getSupportFragmentManager();
-				fm.beginTransaction().replace(R.id.container, new DonateListFragment()).commit();
+				fm.beginTransaction().replace(R.id.container, new DonateListFragment(true)).commit();
 			}
 		});
 		

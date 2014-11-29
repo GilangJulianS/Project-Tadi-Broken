@@ -2,5 +2,7 @@
 <lint>
     <issue id="NewApi">
         <ignore path="src/com/example/tadiproject/CircularImageView.java" />
+        <ignore path="src/com/example/tadiproject/MainActivity.java" />
+        <ignore path="src/com/tadi/fragment/DonateListFragment.java" />
     </issue>
 </lint>

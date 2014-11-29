@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +21,10 @@ import com.tadi.adapter.DonateListItemAdapter;
 public class DonateListFragment extends Fragment {
 
 	private MainActivity main;
+	private boolean organization;
 	
-	public DonateListFragment() {
-		
+	public DonateListFragment(boolean isOrganization) {
+		organization = isOrganization;
 	}
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -46,7 +49,6 @@ public class DonateListFragment extends Fragment {
 			
 		});
 		
-		
 		return rootView;
 	}
 	
@@ -54,12 +56,15 @@ public class DonateListFragment extends Fragment {
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		main = (MainActivity) activity;
+		main.changeMode(true);
 	}
 	
 	@Override
-	public void onDetach(){
-		super.onDetach();
-		main.getSupportActionBar().show();
+	public void onPause(){
+		super.onPause();
+		main.changeMode(false);
 	}
+	
+	
 
 }

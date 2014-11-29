@@ -59,7 +59,7 @@ public class FirstLoginFragment extends Fragment {
 	public void login(){
 		MainActivity.loggedIn = true;
 		((MainActivity)getActivity()).getSupportFragmentManager().beginTransaction()
-				.replace(R.id.container, new DonateListFragment()).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commit();
+				.replace(R.id.container, new DonateListFragment(true)).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commit();
 	}
 	
 	@Override
