@@ -10,8 +10,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import com.tadi.fragment.FirstLoginFragment;
-import com.tadi.fragment.LoginFragment;
 
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -45,12 +45,9 @@ public class MainActivity extends ActionBarActivity implements
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getSupportFragmentManager();
-		if(position == -1)
+		if(position == 0)
 			fragmentManager.beginTransaction()
 					.replace(R.id.container, new FirstLoginFragment()).commit();
-		else if(position == 0)
-			fragmentManager.beginTransaction()
-					.replace(R.id.container, new LoginFragment()).commit();
 	}
 
 	public void restoreActionBar() {

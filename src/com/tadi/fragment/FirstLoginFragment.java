@@ -42,7 +42,7 @@ public class FirstLoginFragment extends Fragment {
 					login();
 			}
 		});
-		bFacebook = (ImageView) view.findViewById(R.id.imageView2);
+		bFacebook = (ImageView) view.findViewById(R.id.imageView3);
 		bSkip = (TextView) view.findViewById(R.id.textView2);
 		bSkip.setOnClickListener(new View.OnClickListener() {
 			
