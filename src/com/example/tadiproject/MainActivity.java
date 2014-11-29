@@ -3,10 +3,7 @@ package com.example.tadiproject;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.tadi.fragment.DonateListFragment;
-
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -14,12 +11,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.tadi.fragment.DonateListFragment;
+import com.tadi.fragment.FirstLoginFragment;
 import com.tadi.fragment.LoginFragment;
 
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
 
+	public static boolean loggedIn;
 	public static List<DonateItem> donateItems = new ArrayList<>();
 	private NavigationDrawerFragment mNavigationDrawerFragment;
 	
@@ -48,8 +46,12 @@ public class MainActivity extends ActionBarActivity implements
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getSupportFragmentManager();
-		fragmentManager.beginTransaction()
-				.replace(R.id.container, new LoginFragment()).commit();
+		if(position == -1)
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, new FirstLoginFragment()).commit();
+		else if(position == 0)
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, new LoginFragment()).commit();
 	}
 
 	public void restoreActionBar() {
@@ -75,6 +77,10 @@ public class MainActivity extends ActionBarActivity implements
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public NavigationDrawerFragment getDrawer(){
+		return mNavigationDrawerFragment;
 	}
 
 
