@@ -47,7 +47,8 @@ public class OpeningFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-				
+				FragmentManager fm = getActivity().getSupportFragmentManager();
+				fm.beginTransaction().replace(R.id.container, new DonateListFragment()).commit();
 			}
 		});
 		return rootView;

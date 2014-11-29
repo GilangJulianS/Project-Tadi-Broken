@@ -26,7 +26,7 @@ public class DonateListFragment extends Fragment {
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		super.onCreateView(inflater, container, savedInstanceState);
-		View rootView = inflater.inflate(R.layout.donate_list, container, false);
+		View rootView = inflater.inflate(R.layout.fragment_donate_list, container, false);
 		
 		ListView donateList = (ListView)rootView.findViewById(R.id.listDonate);
 		
