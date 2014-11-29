@@ -5,6 +5,7 @@ public class DonateItem {
 	String title;
 	String description;
 	int donateImage;
+	
 
 	public DonateItem() {
 		title = "";

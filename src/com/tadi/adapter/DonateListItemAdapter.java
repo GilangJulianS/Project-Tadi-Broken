@@ -47,16 +47,19 @@ public class DonateListItemAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if(convertView == null){
 			convertView = inflater.inflate(R.layout.donate_list_item, parent, false);
-			ImageView donateImage = (ImageView)convertView.findViewById(R.id.donateImage);
-			TextView donateTitle = (TextView)convertView.findViewById(R.id.donateTitle);
-			TextView donateDescription = (TextView)convertView.findViewById(R.id.donateDescirption);
+			ImageView donateImage = (ImageView)convertView.findViewById(R.id.listItemDonateImage);
+			TextView donateTitle = (TextView)convertView.findViewById(R.id.listItemDonateTitle);
+			TextView donateDescription = (TextView)convertView.findViewById(R.id.listItemDonateDescirption);
 			
 			donateImage.setImageResource(donateItems.get(position).getDonateImage());
 			donateTitle.setText(donateItems.get(position).getTitle());
-			donateDescription.setText(donateItems.get(position).getDescription());
 			
-			
-			
+			if(donateItems.get(position).getDescription().length() > 36){
+				donateDescription.setText(donateItems.get(position).getDescription().substring(0, 35) + "...");
+			}
+			else{
+				donateDescription.setText(donateItems.get(position).getDescription());
+			}
 		}
 		
 		return convertView;
