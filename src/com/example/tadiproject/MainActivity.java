@@ -1,17 +1,18 @@
 package com.example.tadiproject;
 
-import android.app.Activity;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.tadi.fragment.DonateListFragment;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.tadi.fragment.DonateListFragment;
 import com.tadi.fragment.LoginFragment;
@@ -19,22 +20,28 @@ import com.tadi.fragment.LoginFragment;
 public class MainActivity extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
 
+	public static List<DonateItem> donateItems = new ArrayList<>();
 	private NavigationDrawerFragment mNavigationDrawerFragment;
-
-	private CharSequence mTitle;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		donateItems.add(new DonateItem("Disaster", "Pada hari minggu kuturut ayah ke kota naik delman istimewa", R.drawable.test_asset));
+		donateItems.add(new DonateItem("Disaster", "Medium disaster", R.drawable.test_asset));
+		donateItems.add(new DonateItem("Disaster", "High disaster", R.drawable.test_asset));
+		donateItems.add(new DonateItem("Disaster", "Great disaster", R.drawable.test_asset));
+		donateItems.add(new DonateItem("Disaster", "Very Great disaster", R.drawable.test_asset));
+		
+		
 		setContentView(R.layout.activity_main);
 
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
-		mTitle = getTitle();
 
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
-				(DrawerLayout) findViewById(R.id.drawer_layout));
+				(DrawerLayout) findViewById(R.id.drawer_layout));	
 	}
 
 	@Override
@@ -49,7 +56,6 @@ public class MainActivity extends ActionBarActivity implements
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setDisplayShowTitleEnabled(true);
-		actionBar.setTitle(mTitle);
 	}
 
 	@Override
