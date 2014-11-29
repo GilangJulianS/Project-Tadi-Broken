@@ -2,6 +2,7 @@ package com.tadi.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ public class DetailDonateFragment extends Fragment {
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		super.onCreateView(inflater, container, savedInstanceState);
-		View rootView = inflater.inflate(R.layout.detail_donate, container, false);
+		View rootView = inflater.inflate(R.layout.fragment_detail_donate, container, false);
 		
 		ImageView donateLogo = (ImageView)rootView.findViewById(R.id.detailDonateLogo);
 		TextView donateTitle = (TextView)rootView.findViewById(R.id.detailDonateTitle);
@@ -36,7 +37,17 @@ public class DetailDonateFragment extends Fragment {
 		subscribeButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				new DialogConfirmFragment().show(getFragmentManager(), "MyDialog");
+				new DialogConfirmSubscribeFragment().show(getFragmentManager(), "");
+			}
+		});
+		
+		ImageView donateButton = (ImageView)rootView.findViewById(R.id.donateButton);
+		donateButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				FragmentManager fm = getActivity().getSupportFragmentManager();
+				fm.beginTransaction().replace(R.id.container, new DonateAmountFragment()).commit();
 			}
 		});
 		

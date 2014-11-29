@@ -10,18 +10,18 @@ import android.widget.Toast;
 
 import com.example.tadiproject.R;
 
-public class DialogConfirmFragment extends DialogFragment {
+public class DialogConfirmSubscribeFragment extends DialogFragment {
 
 	Dialog dialog;
 	
-    public DialogConfirmFragment() {
+    public DialogConfirmSubscribeFragment() {
     
     }
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
     	dialog = new Dialog(getActivity());
     	dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_confirm_subscrive);
+        dialog.setContentView(R.layout.dialog_confirm_subscribe);
         
         ImageView yesSubscribeButton = (ImageView)dialog.findViewById(R.id.yesSubscribeButton);
         

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/donate500"
+        android:layout_width="70dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="35dp"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:src="@drawable/test_asset" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp" >
+
+        <ImageView
+            android:id="@+id/donate1k"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:src="@drawable/test_asset" />
+
+        <ImageView
+            android:id="@+id/donate5k"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:src="@drawable/test_asset" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="35dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.26"
+            android:gravity="right"
+            android:text="IDR" />
+
+        <EditText
+            android:id="@+id/countPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="number"
+            android:editable="true"
+            android:hint="jumlah lain" >
+
+            <requestFocus />
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp" >
+
+        <RadioGroup android:layout_width="fill_parent"               
+            android:layout_height="50dp"           
+            android:orientation="horizontal"         
+            android:checkedButton="@+id/first">  
+
+		<RadioButton android:id="@+id/tmoneyButton"        
+		    android:width="0dp"        
+		  	android:height="50dp"
+		  	android:layout_weight="1"
+		  	android:text="T-Money"
+		  	android:layout_marginLeft="20dp"/> 
+		
+	   	<RadioButton android:id="@+id/pulsaButton"        
+    		android:width="0dp"     
+      		android:height="50dp"
+      		android:layout_weight="1"
+      		android:text="Pulsa"/>
+		         
+		</RadioGroup>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/finalDonateButton"
+        android:layout_width="98dp"
+        android:layout_height="45dp"
+        android:src="@drawable/buttonselected"
+        android:layout_marginTop="25dp"
+        android:clickable="true"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
